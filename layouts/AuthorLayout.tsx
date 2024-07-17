@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
+import CustomLink from '@/components/Link'
 
 interface Props {
   children: ReactNode
@@ -9,7 +10,7 @@ interface Props {
 }
 
 export default function AuthorLayout({ children, content }: Props) {
-  const { name, avatar, occupation, company, email, linkedin, github, twitter } = content
+  const { name, avatar, occupation, company, email, linkedin, github, twitter, resume } = content
 
   return (
     <>
@@ -38,6 +39,14 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind="github" href={github} />
               <SocialIcon kind="linkedin" href={linkedin} />
               <SocialIcon kind="twitter" href={twitter} />
+            </div>
+            <div className="mt-4">
+              <CustomLink
+                href={resume}
+                className="font-medium uppercase tracking-wide text-primary-500 underline hover:text-primary-600"
+              >
+                Résumé
+              </CustomLink>
             </div>
           </div>
           <div className="prose max-w-none pb-8 pt-8 dark:prose-invert xl:col-span-2">

@@ -9,12 +9,7 @@ const MAX_DISPLAY = 5
 export default function Home({ posts }) {
   return (
     <>
-      <div className="divide-y divide-zinc-200 dark:divide-zinc-700">
-        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-          Hello, I'm Dat Hoang Tien! 👋
-        </h1>
-      </div>
-      <div className="divide-y divide-zinc-200 dark:divide-zinc-700">
+      <div className="divide-y divide-zinc-200 dark:divide-zinc-700" id="latest">
         <div className="space-y-2 pb-8 pt-6 md:space-y-5">
           <h2 className="text-3xl font-extrabold leading-9 tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
             Latest

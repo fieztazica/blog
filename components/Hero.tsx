@@ -1,8 +1,27 @@
+'use client'
+
 import Image from 'next/image'
 import React from 'react'
 import CustomLink from './Link'
+import { Transition } from '@headlessui/react'
+import { cn } from '@/lib/utils'
+import { greetings } from '@/data/langs/greetings'
 
 function Hero() {
+  const [greeting, setGreeting] = React.useState(greetings[0])
+  const [isShowing, setIsShowing] = React.useState(true)
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIsShowing(false)
+      setTimeout(() => {
+        setIsShowing(true)
+        setGreeting(greetings[(greetings.indexOf(greeting) + 1) % greetings.length])
+      }, 500)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [greeting])
+
   return (
     <div className="-mt-24 flex min-h-dvh w-full flex-col justify-center lg:-mt-32">
       <div className="mb-16 px-1">
@@ -28,11 +47,29 @@ function Hero() {
       </div>
       <div className="divide-y divide-zinc-200 dark:divide-zinc-700">
         <div>
-          <h1 className="mb-2 text-3xl font-extrabold leading-9 tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Hello, I'm Đạt! 👋
+          <h1
+            className={cn(
+              'mb-2 text-3xl font-extrabold leading-9 tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14'
+            )}
+          >
+            <span>👋 </span>
+            <Transition appear show={isShowing} as={React.Fragment}>
+              <Transition.Child
+                as={React.Fragment}
+                enter="transition ease-in-out duration-300 transform"
+                enterFrom="scale-0 opacity-0"
+                enterTo="scale-100 opacity-95"
+                leave="transition ease-in duration-200 transform"
+                leaveFrom="scale-100 opacity-95"
+                leaveTo="scale-0 opacity-0"
+              >
+                <span>{greeting}!</span>
+              </Transition.Child>
+            </Transition>
           </h1>
+
           <p className="mb-4 text-lg text-zinc-500 dark:text-zinc-400">
-            I am a fresher in Software Engineering.
+            I'm <b>Đạt</b>, a fresher in <b>Software Engineering</b>.
           </p>
           <CustomLink
             className="text-xl font-medium text-primary-500 underline hover:text-primary-600"

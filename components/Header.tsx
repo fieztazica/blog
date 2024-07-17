@@ -34,6 +34,11 @@ const Header = () => {
         <div
           className={`hidden min-h-6 items-center space-x-6 rounded-lg px-4 py-2 leading-5 backdrop-blur-lg sm:flex ${isTop ? 'border-none' : 'border'} 2xl:ml-2`}
         >
+          <Link href="/" aria-label={siteMetadata.headerTitle}>
+            <div className="flex items-center justify-between">
+              <Logo className="size-6 fill-current text-black hover:text-primary-500 dark:text-white dark:hover:text-primary-400" />
+            </div>
+          </Link>
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
@@ -55,11 +60,6 @@ const Header = () => {
         <div
           className={`flex min-h-6 items-center space-x-4 rounded-lg ${isTop ? 'border-none' : 'border'} px-4 py-2 leading-5 backdrop-blur-lg sm:space-x-6 2xl:-mr-2`}
         >
-          <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center justify-between">
-              <Logo className="size-6 fill-current text-black hover:text-primary-500 dark:text-white dark:hover:text-primary-400" />
-            </div>
-          </Link>
           <SearchButton />
           <ThemeSwitch />
         </div>

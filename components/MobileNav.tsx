@@ -62,9 +62,9 @@ const MobileNav = () => {
                 leaveTo="translate-x-full opacity-0"
               >
                 <Dialog.Panel className="fixed left-0 top-0 z-10 h-full w-full bg-white opacity-95 duration-300 dark:bg-zinc-950 dark:opacity-[0.98]">
-                  <nav className="fixed mt-8 h-full text-left">
+                  <nav className="fixed mt-16 h-full text-left">
                     {headerNavLinks.map((link) => (
-                      <div key={link.title} className="px-12 py-4">
+                      <div key={link.title} className="px-6 py-4">
                         <Link
                           href={link.href}
                           className="text-2xl font-bold tracking-widest text-zinc-900 hover:text-primary-500 dark:text-zinc-100 dark:hover:text-primary-400"
@@ -76,9 +76,9 @@ const MobileNav = () => {
                     ))}
                   </nav>
 
-                  <div className="flex justify-end">
+                  <div className="flex justify-start">
                     <button
-                      className="mr-8 mt-11 h-8 w-8"
+                      className="ml-4 mt-6 h-8 w-8"
                       aria-label="Toggle Menu"
                       onClick={onToggleNav}
                     >

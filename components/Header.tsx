@@ -29,10 +29,10 @@ const Header = () => {
   const isTop = useIsScrollTop()
 
   return (
-    <div className={`fixed inset-x-0 top-0 flex items-center justify-center text-center`}>
-      <header className="xl:10 container mx-auto flex items-center justify-between py-4 md:py-8">
+    <div className={`fixed inset-x-0 top-0 flex items-center justify-center`}>
+      <header className="container flex items-center justify-between py-4 md:py-8 xl:py-10">
         <div
-          className={`hidden min-h-6 items-center space-x-6 rounded-lg px-4 py-2 leading-5 backdrop-blur-lg sm:flex ${isTop ? 'border-none' : 'border'}`}
+          className={`hidden min-h-6 items-center space-x-6 rounded-lg px-4 py-2 leading-5 backdrop-blur-lg sm:flex ${isTop ? 'border-none' : 'border'} 2xl:ml-2`}
         >
           {headerNavLinks
             .filter((link) => link.href !== '/')
@@ -48,12 +48,12 @@ const Header = () => {
             ))}
         </div>
         <div
-          className={`flex min-h-6 items-center rounded-lg px-2 leading-5 backdrop-blur-lg sm:hidden ${isTop ? 'border-none' : 'border'}`}
+          className={`flex aspect-square min-h-6 items-center rounded-lg px-1 leading-5 backdrop-blur-lg sm:hidden ${isTop ? 'border-none' : 'border'}`}
         >
           <MobileNav />
         </div>
         <div
-          className={`flex min-h-6 items-center space-x-4 rounded-lg ${isTop ? 'border-none' : 'border'} px-4 py-2 leading-5 backdrop-blur-lg sm:space-x-6`}
+          className={`flex min-h-6 items-center space-x-4 rounded-lg ${isTop ? 'border-none' : 'border'} px-4 py-2 leading-5 backdrop-blur-lg sm:space-x-6 2xl:-mr-2`}
         >
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">

@@ -1,0 +1,83 @@
+---
+title: Making A Discord Bot
+date: '2024-07-18'
+tags: ['discord', 'guide']
+draft: false
+summary: Simply create a Discord bot using NamVr's Discord Bot Template.
+---
+
+## Intro
+
+While you are hanging out with your friends on Discord, you suddenly find a great bot but some of it's features require a premium subscription and you're broke.
+
+Knowing a little bit of Javascript and Node.js, you decide to dig through the entire Internet to find a good, simple Discord bot template but there are so many choices.
+
+To meet your needs, [NamVr's DiscordBot Template](https://github.com/NamVr/DiscordBot-Template) is the best solution.
+
+## Step by step
+
+### Requirements
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/) >= v18 ([NVM](https://github.com/nvm-sh/nvm) or [Volta](https://volta.sh/) are good choices if you know what are these).
+- Your favorite Text Editor (mine is [VSCode](https://code.visualstudio.com/)).
+- A Discord application created on [https://discord.com/developers/applications](https://discord.com/developers/applications).
+
+### Getting things ready
+
+Head to [Discord Developer Portal](https://discord.com/developers/applications).
+![](https://i.imgur.com/HlIa5D1.png)
+
+Copy application Client ID and store it for later use.
+![](https://i.imgur.com/qNnCsLq.png)
+
+Copy Bot Token and store it for later use.
+![](https://i.imgur.com/cAMS4SX.png)
+
+Open your Discord Client (on web or desktop application) and enable **Developer Mode**.
+![](https://i.imgur.com/MSOriEI.png)
+
+Copy your guild/server ID and store it for later use.
+![](https://i.imgur.com/2eImilf.png)
+
+Copy your user ID and store it for later use.
+![](https://i.imgur.com/ZvPaF79.png)
+
+### Install the template
+
+```bash
+# Simply clone the template to your favorite directory:
+git clone https://github.com/NamVr/DiscordBot-Template my-bot
+cd my-bot
+npm install
+```
+
+### Config your bot
+
+Now rename the `config-example.json` file to `config.json` and Paste all stored contents from [Getting things ready](#getting-things-ready) to `config.json`.
+
+```json
+{
+  "prefix": "!",
+  "token": "your-bot-token",
+  "owner": "your-id",
+  "client_id": "client-id",
+  "test_guild_id": "your-server-id"
+}
+```
+
+### Run the bot
+
+```bash
+npm start
+
+# "Started refreshing application (/) commands."
+# "Successfully reloaded application (/) commands."
+# "Ready! Logged in as My Bot"
+```
+
+Test the bot in your Discord Server by typing `!ping` and check if it responds or not. `Pong` means you are good to go!
+
+## Conclusion
+
+Your bot is now ready! Bot commands are stored in the `commands` folder by category. There are some example commands in `commands/misc` like `ping` and `help` (`reload` is used to update the latest version of the command source code). Feel free to edit those commands to fit your needs and create more if you want additional functionality!

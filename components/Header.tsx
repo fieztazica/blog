@@ -8,6 +8,7 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import { useEffect, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 function useIsScrollTop() {
   const [isTop, setIsTop] = useState(true)
@@ -28,12 +29,16 @@ function useIsScrollTop() {
 const Header = () => {
   const isTop = useIsScrollTop()
 
+  const boxWrapperClassName = cn(
+    'leading-5 items-center flex px-4 py-2 min-h-6',
+    'bg-white/50 dark:bg-zinc-900/50 rounded-lg backdrop-blur-lg',
+    isTop ? 'border-none' : 'border'
+  )
+
   return (
     <div className={`fixed inset-x-0 top-0 flex items-center justify-center`}>
       <header className="container flex items-center justify-between py-4 md:py-8 xl:py-10">
-        <div
-          className={`hidden min-h-6 items-center space-x-6 rounded-lg px-4 py-2 leading-5 backdrop-blur-lg sm:flex ${isTop ? 'border-none' : 'border'} 2xl:ml-2`}
-        >
+        <div className={cn(boxWrapperClassName, 'hidden space-x-6 sm:flex')}>
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center justify-between">
               <Logo className="size-6 fill-current text-black hover:text-primary-500 dark:text-white dark:hover:text-primary-400" />
@@ -52,14 +57,10 @@ const Header = () => {
               </Link>
             ))}
         </div>
-        <div
-          className={`flex aspect-square min-h-6 items-center rounded-lg px-1 leading-5 backdrop-blur-lg sm:hidden ${isTop ? 'border-none' : 'border'}`}
-        >
+        <div className={cn(boxWrapperClassName, 'aspect-square px-1 py-1 sm:hidden')}>
           <MobileNav />
         </div>
-        <div
-          className={`flex min-h-6 items-center space-x-4 rounded-lg ${isTop ? 'border-none' : 'border'} px-4 py-2 leading-5 backdrop-blur-lg sm:space-x-6 2xl:-mr-2`}
-        >
+        <div className={cn(boxWrapperClassName, 'space-x-4 sm:space-x-6')}>
           <SearchButton />
           <ThemeSwitch />
         </div>

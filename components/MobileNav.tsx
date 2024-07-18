@@ -42,9 +42,9 @@ const MobileNav = () => {
             as={Fragment}
             enter="ease-out duration-300"
             enterFrom="opacity-0"
-            enterTo="opacity-100"
+            enterTo="opacity-95"
             leave="ease-in duration-200"
-            leaveFrom="opacity-100"
+            leaveFrom="opacity-95"
             leaveTo="opacity-0"
           >
             <div className="fixed inset-0 bg-black/25" />
@@ -55,13 +55,13 @@ const MobileNav = () => {
               <Transition.Child
                 as={Fragment}
                 enter="transition ease-in-out duration-300 transform"
-                enterFrom="translate-x-full opacity-0"
-                enterTo="translate-x-0 opacity-95"
+                enterFrom="scale-0 -translate-y-full -translate-x-full opacity-0"
+                enterTo="scale-100 translate-y-0 translate-x-0 opacity-95"
                 leave="transition ease-in duration-200 transform"
-                leaveFrom="translate-x-0 opacity-95"
-                leaveTo="translate-x-full opacity-0"
+                leaveFrom="scale-100 translate-y-0 translate-x-0 opacity-95"
+                leaveTo="scale-0 -translate-y-full -translate-x-full opacity-0"
               >
-                <Dialog.Panel className="fixed left-0 top-0 z-10 h-full w-full bg-white opacity-95 duration-300 dark:bg-zinc-950 dark:opacity-[0.98]">
+                <Dialog.Panel className="fixed left-4 top-4 z-10 h-full w-full rounded-lg border bg-white/50 opacity-95 backdrop-blur-lg duration-300 dark:bg-zinc-950/50 dark:opacity-[0.98]">
                   <nav className="fixed mt-16 h-full text-left">
                     {headerNavLinks.map((link) => (
                       <div key={link.title} className="px-6 py-4">
@@ -78,7 +78,7 @@ const MobileNav = () => {
 
                   <div className="flex justify-start">
                     <button
-                      className="ml-4 mt-6 h-8 w-8"
+                      className="ml-1 mt-1 h-8 w-8"
                       aria-label="Toggle Menu"
                       onClick={onToggleNav}
                     >

@@ -12,6 +12,8 @@ import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import Ready from '@/components/Ready'
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -109,6 +111,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </SectionContainer>
           </Ready>
+          <VercelAnalytics />
+          <SpeedInsights />
         </ThemeProviders>
       </body>
     </html>

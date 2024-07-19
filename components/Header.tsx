@@ -9,22 +9,7 @@ import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
-
-function useIsScrollTop() {
-  const [isTop, setIsTop] = useState(true)
-  useEffect(() => {
-    function onScroll() {
-      setIsTop(window.scrollY <= 0)
-    }
-    window.addEventListener('scroll', onScroll)
-
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
-
-  return isTop
-}
+import { useIsScrollTop } from '@/lib/hooks/useIsScrollTop'
 
 const Header = () => {
   const isTop = useIsScrollTop()
@@ -36,7 +21,7 @@ const Header = () => {
   )
 
   return (
-    <div className={`fixed inset-x-0 top-0 flex items-center justify-center`}>
+    <div className={`z-99 fixed inset-x-0 top-0 flex items-center justify-center`}>
       <header className="container flex items-center justify-between py-4 md:py-8 xl:py-10">
         <div className={cn(boxWrapperClassName, 'hidden space-x-6 sm:flex')}>
           <Link href="/" aria-label={siteMetadata.headerTitle}>

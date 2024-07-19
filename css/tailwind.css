@@ -8,6 +8,16 @@
   }
 }
 
+@layer utilities {
+  .z-99 {
+    z-index: 99;
+  }
+
+  .-z-99 {
+    z-index: -99;
+  }
+}
+
 .task-list-item::before {
   @apply hidden;
 }

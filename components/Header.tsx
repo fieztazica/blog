@@ -21,7 +21,7 @@ const Header = () => {
   )
 
   return (
-    <div className={`z-99 fixed inset-x-0 top-0 flex items-center justify-center`}>
+    <div className={`fixed inset-x-0 top-0 z-10 flex items-center justify-center`}>
       <header className="container flex items-center justify-between py-4 md:py-8 xl:py-10">
         <div className={cn(boxWrapperClassName, 'hidden space-x-6 sm:flex')}>
           <Link href="/" aria-label={siteMetadata.headerTitle}>

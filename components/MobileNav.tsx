@@ -37,7 +37,7 @@ const MobileNav = () => {
         </svg>
       </button>
       <Transition appear show={navShow} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={onToggleNav}>
+        <Dialog as="div" className="relative z-20" onClose={onToggleNav}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -61,7 +61,7 @@ const MobileNav = () => {
                 leaveFrom="scale-100 translate-y-0 translate-x-0 opacity-95"
                 leaveTo="scale-0 -translate-y-full -translate-x-full opacity-0"
               >
-                <Dialog.Panel className="fixed left-4 top-4 z-10 h-full w-full rounded-lg border bg-white/50 opacity-95 backdrop-blur-lg duration-300 dark:bg-zinc-950/50 dark:opacity-[0.98]">
+                <Dialog.Panel className="fixed left-4 top-4 z-10 h-full w-full rounded-lg border-l border-t bg-white/50 opacity-95 backdrop-blur-lg duration-300 dark:bg-zinc-950/50 dark:opacity-[0.98]">
                   <nav className="fixed mt-16 h-full text-left">
                     {headerNavLinks.map((link) => (
                       <div key={link.title} className="px-6 py-4">

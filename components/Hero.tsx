@@ -12,6 +12,9 @@ import { useIsScrollTop } from '@/lib/hooks/useIsScrollTop'
 function Hero() {
   const { greeting, isShowing } = useGreeting()
   const isTop = useIsScrollTop()
+  const readMoreRef = React.useRef<HTMLButtonElement>(null)
+
+  const handleReadMoreClick = () => readMoreRef.current?.scrollIntoView({ behavior: 'smooth' })
 
   return (
     <div className="relative -mt-24 flex min-h-dvh w-full flex-col justify-center lg:-mt-32">
@@ -70,10 +73,9 @@ function Hero() {
           </CustomLink>
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-12 animate-pulse text-center">
-        <Transition show={isTop} as={React.Fragment}>
+      <div className="absolute bottom-12 mx-auto w-full text-center">
+        <Transition show={isTop}>
           <Transition.Child
-            as={React.Fragment}
             enter="transition ease-in-out duration-300 transform"
             enterFrom="scale-0 opacity-0"
             enterTo="scale-100 opacity-95"
@@ -81,7 +83,9 @@ function Hero() {
             leaveFrom="scale-100 opacity-95"
             leaveTo="scale-0 opacity-0"
           >
-            <ChevronDown className="mx-auto size-8 animate-bounce" />
+            <button ref={readMoreRef} onClick={handleReadMoreClick} className="animate-pulse">
+              <ChevronDown className="size-8 animate-bounce sm:size-10" />
+            </button>
           </Transition.Child>
         </Transition>
       </div>

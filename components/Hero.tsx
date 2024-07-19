@@ -5,25 +5,16 @@ import React from 'react'
 import CustomLink from './Link'
 import { Transition } from '@headlessui/react'
 import { cn } from '@/lib/utils'
-import { greetings } from '@/data/langs/greetings'
+import { ChevronDown } from 'lucide-react'
+import { useGreeting } from '@/lib/hooks/useGreeting'
+import { useIsScrollTop } from '@/lib/hooks/useIsScrollTop'
 
 function Hero() {
-  const [greeting, setGreeting] = React.useState(greetings[0])
-  const [isShowing, setIsShowing] = React.useState(true)
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setIsShowing(false)
-      setTimeout(() => {
-        setIsShowing(true)
-        setGreeting(greetings[(greetings.indexOf(greeting) + 1) % greetings.length])
-      }, 500)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [greeting])
+  const { greeting, isShowing } = useGreeting()
+  const isTop = useIsScrollTop()
 
   return (
-    <div className="-mt-24 flex min-h-dvh w-full flex-col justify-center lg:-mt-32">
+    <div className="relative -mt-24 flex min-h-dvh w-full flex-col justify-center lg:-mt-32">
       <div className="mb-16 px-1">
         <CustomLink href="/about">
           <div
@@ -53,7 +44,7 @@ function Hero() {
             )}
           >
             <span>👋 </span>
-            <Transition appear show={isShowing} as={React.Fragment}>
+            <Transition show={isShowing} as={React.Fragment}>
               <Transition.Child
                 as={React.Fragment}
                 enter="transition ease-in-out duration-300 transform"
@@ -78,6 +69,21 @@ function Hero() {
             Contact me 📧
           </CustomLink>
         </div>
+      </div>
+      <div className="absolute inset-x-0 bottom-12 animate-pulse text-center">
+        <Transition show={isTop} as={React.Fragment}>
+          <Transition.Child
+            as={React.Fragment}
+            enter="transition ease-in-out duration-300 transform"
+            enterFrom="scale-0 opacity-0"
+            enterTo="scale-100 opacity-95"
+            leave="transition ease-in duration-200 transform"
+            leaveFrom="scale-100 opacity-95"
+            leaveTo="scale-0 opacity-0"
+          >
+            <ChevronDown className="mx-auto size-8 animate-bounce" />
+          </Transition.Child>
+        </Transition>
       </div>
     </div>
   )

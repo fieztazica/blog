@@ -1,26 +1,22 @@
 interface Project {
-  title: string,
-  description: string,
-  href?: string,
-  imgSrc?: string,
+  title: string
+  description: string
+  href?: string
+  imgSrc?: string
 }
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Online Asset Management',
+    description: `Online Asset Management (OAM) is an online platform for managing assets among company staffs. This project is associated with NashTech Vietnam's Rookie2Engineer Program.`,
+    imgSrc: '/static/images/projects/oam-screenshot.png',
+    href: 'https://github.com/fieztazica/online-asset-management/',
   },
   {
-    title: 'The Time Machine',
-    description: `Imagine being able to travel back in time or to the future. Simple turn the knob
-    to the desired date and press "Go". No more worrying about lost keys or
-    forgotten headphones with this simple yet affordable solution.`,
-    imgSrc: '/static/images/time-machine.jpg',
-    href: '/blog/the-time-machine',
+    title: 'ProfioApp',
+    description: `The application aimed at providing efficient and professional solutions for transportation management 🚛`,
+    imgSrc: '/static/images/projects/cms-login.png',
+    href: 'https://github.com/HutechCJ/ProfioApp/',
   },
 ]
 

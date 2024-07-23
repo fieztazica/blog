@@ -46,7 +46,7 @@ export default function AuthorLayout({ children, content }: Props) {
                   href={resume}
                   className="font-medium uppercase tracking-wide text-primary-500 underline hover:text-primary-600"
                 >
-                  Résumé
+                  My Résumé
                 </CustomLink>
               </div>
             )}

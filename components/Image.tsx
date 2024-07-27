@@ -7,6 +7,8 @@ export const getSrcUrl = (src: string) => {
   return src
 }
 
-const Image = ({ src, ...rest }: ImageProps) => <NextImage src={`${getSrcUrl(src)}`} {...rest} />
+const Image = ({ src, ...rest }: ImageProps) => (
+  <NextImage src={`${basePath || ''}${src}`} {...rest} />
+)
 
 export default Image

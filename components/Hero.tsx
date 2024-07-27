@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import React from 'react'
 import CustomLink from './Link'
 import { Transition } from '@headlessui/react'
@@ -8,6 +7,7 @@ import { cn } from '@/lib/utils'
 import { ChevronDown } from 'lucide-react'
 import { useGreeting } from '@/lib/hooks/useGreeting'
 import { useIsScrollTop } from '@/lib/hooks/useIsScrollTop'
+import Image, { getSrcUrl } from './Image'
 
 function Hero() {
   const { greeting, isShowing } = useGreeting()
@@ -25,7 +25,7 @@ function Hero() {
               'border-mine-shaft-200 dark:border-mine-shaft-700 flex w-full justify-center rounded-lg border-2 bg-cover bg-center bg-no-repeat px-16 py-24'
             }
             style={{
-              backgroundImage: `url('/static/images/bg.gif')`,
+              backgroundImage: `url('${getSrcUrl('/static/images/bg.gif')}')`,
             }}
           >
             <Image

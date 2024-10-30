@@ -22,10 +22,13 @@ function Hero() {
         <CustomLink href="/about">
           <div
             className={
-              'relative border-mine-shaft-200 dark:border-mine-shaft-700 items-center flex flex-col w-full justify-center rounded-lg border-2 px-16 py-24'
+              'border-mine-shaft-200 dark:border-mine-shaft-700 relative flex w-full flex-col items-center justify-center rounded-lg border-2 px-16 py-24'
             }
           >
-            <img className="h-full w-full absolute inset-0 object-cover rounded-lg" src="/static/images/bg.gif"/>
+            <img
+              className="absolute inset-0 h-full w-full rounded-lg object-cover"
+              src="/static/images/bg.gif"
+            />
             <Image
               src="/static/images/bumping.gif"
               alt="Fiezt bumping gif"
@@ -45,7 +48,7 @@ function Hero() {
             )}
           >
             <span>👋</span>
-            <FlipWords words={greetings.map(word => word + "!")} />
+            <FlipWords words={greetings.map((word) => word + '!')} />
           </h1>
 
           <p className="mb-4 text-lg text-zinc-500 dark:text-zinc-400">

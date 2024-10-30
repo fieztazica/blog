@@ -1,6 +1,9 @@
 // @ts-check
 const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 /** @type {import("tailwindcss/types").Config } */
 module.exports = {
@@ -15,6 +18,13 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: '2rem',
+        screens: {
+          '2xl': '1400px',
+        },
+      },
       lineHeight: {
         11: '2.75rem',
         12: '3rem',
@@ -22,7 +32,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        sans: ['var(--font-lexend)', ...fontFamily.sans],
       },
       colors: {
         primary: colors.cyan,
@@ -65,7 +75,33 @@ module.exports = {
           },
         },
       }),
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), addVariablesForColors],
+}
+
+// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+function addVariablesForColors({ addBase, theme }) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+
+  addBase({
+    ":root": newVars,
+  });
 }

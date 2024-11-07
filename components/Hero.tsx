@@ -26,6 +26,7 @@ function Hero() {
             }
           >
             <img
+              alt="Animated background"
               className="absolute inset-0 h-full w-full rounded-lg object-cover"
               src="/static/images/bg.gif"
             />

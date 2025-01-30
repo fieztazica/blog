@@ -84,7 +84,7 @@ export default function Footer() {
             <DiscordStatus />
           </div>
           <div className="mb-8 text-sm text-zinc-500 dark:text-zinc-400">
-            <Link href="https://github.com/fieztazica/fiezt-blog">Site source</Link>
+            <Link href="https://github.com/fieztazica/blog">Site source</Link>
           </div>
         </div>
       </div>

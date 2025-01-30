@@ -1,13 +1,13 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Dat Hoang Tien',
+  title: 'Dat Hoang Tien Blog',
   author: 'Dat Hoang Tien',
   headerTitle: 'Fiezt',
   description: "Dat Hoang Tien's personal blog and portfolio.",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tiendat.id.vn',
-  siteRepo: 'https://github.com/fieztazica/fiezt-blog',
+  siteRepo: 'https://github.com/fieztazica/blog',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
